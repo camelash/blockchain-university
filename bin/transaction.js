@@ -1,7 +1,8 @@
 var should = require('chai').should();
 var Script = require('fullnode/lib/script');
 var Tx = require('fullnode/lib/tx');
-var Txbuilder = require('fullnode/lib/txbuilder');
+var Txverifier = require('fullnode/lib/txverifier');
+var Txoutmap = require('fullnode/lib/txoutmap');
 var BR = require('fullnode/lib/br');
 
 // The transaction in hex.
@@ -49,14 +50,9 @@ console.log('scriptSig: ' + tx.txins[0].script.toString('hex'));
 // Run the check transaction function, which runs the script interpreter and
 // also performs all the other checks to know if the transaction is valid or
 // not.
-var utxoutmap = {}
-utxoutmap[prevtx.id().toString('hex') + ':' + prevtxoutnum] = {
-  txout: prevtx.txouts[prevtxoutnum]
-};
-var isValid = Txbuilder({
-  tx: tx,
-  utxoutmap: utxoutmap
-}).verifytx();
+var utxoutmap = Txoutmap();
+utxoutmap.addTx(prevtx);
+var isValid = Txverifier(tx, utxoutmap).verify();
 console.log('is tx valid? ' + (isValid ? 'yes' : 'no'));
 isValid.should.equal(true);
 
@@ -65,10 +61,7 @@ isValid.should.equal(true);
 // immediately invalidates the transaction. The transaction should therefore no
 // longer be valid.
 tx.txins[0].setScript(Script().fromString('OP_RETURN'));
-var isValid = Txbuilder({
-  tx: tx,
-  utxoutmap: utxoutmap
-}).verifytx();
+var isValid = Txverifier(tx, utxoutmap).verify();
 console.log('is modified tx valid? ' + (isValid ? 'yes' : 'no'));
 isValid.should.equal(false);
 

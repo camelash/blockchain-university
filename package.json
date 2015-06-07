@@ -10,6 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "chai": "^2.2.0",
-    "fullnode": "^0.8.0"
+    "fullnode": "git@github.com:ryanxcharles/fullnode.git#69a015e3757f3feff0e18b844f85a7f8a897bf5d"
   }
 }
