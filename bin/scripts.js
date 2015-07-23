@@ -10,6 +10,9 @@ let Hash = require('fullnode/lib/hash');
 // operations, which hash the transaction, the transaction can be blank.
 let tx = Tx();
 
+// Example scripts. Note that while most of the scripts evaluate to true, some
+// deliberately evaluate to false.
+
 let script1sig = Script().fromString("OP_1");
 let script1pubkey = Script().fromString("");
 let verify1 = Interp().verify(script1sig, script1pubkey, tx, 0, 0);
