@@ -3,6 +3,7 @@ let Script = require('fullnode/lib/script');
 let Interp = require('fullnode/lib/interp');
 let Tx = require('fullnode/lib/tx');
 let Hash = require('fullnode/lib/hash');
+let Address = require('fullnode/lib/address');
 
 // First, make a blank, fake tx to use for the script interpreter. None of the
 // scripts we will make will require an actual transaction, because we will not
@@ -337,3 +338,11 @@ console.log('script pubkey: ' + script36pubkey.toString());
 console.log('        valid? ' + verify36);
 console.log();
 
+let redeemScript = Script().fromString('OP_1');
+let scriptSig = Script().fromString('' + redeemScript.toBuffer().length + ' 0x' + redeemScript.toHex());
+console.log(scriptSig.toString());
+let address = Address().fromRedeemScript(redeemScript);
+let scriptPubkey = address.toScript();
+console.log(scriptPubkey.toString());
+let verify = Interp().verify(scriptSig, scriptPubkey, tx, 0, 0);
+console.log('is my cool new p2sh thing valid? ' + verify);
