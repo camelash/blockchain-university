@@ -342,7 +342,7 @@ let redeemScript37 = Script().fromString('OP_1');
 let scriptSig37 = Script().fromString('' + redeemScript37.toBuffer().length + ' 0x' + redeemScript37.toHex());
 let address = Address().fromRedeemScript(redeemScript37);
 let scriptPubkey37 = address.toScript();
-let verify37 = Interp().verify(scriptSig37, scriptPubkey37, tx, 0, 0);
+let verify37 = Interp().verify(scriptSig37, scriptPubkey37, tx, 0, Interp.SCRIPT_VERIFY_P2SH);
 console.log('37.');
 console.log('redeem script: ' + redeemScript37.toString());
 console.log('   script sig: ' + scriptSig37.toString());
