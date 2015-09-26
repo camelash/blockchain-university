@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "chai": "^2.2.0",
-    "fullnode": "git@github.com:ryanxcharles/fullnode.git#98c633bba51757864979568fd37601a792ad2a91"
+    "fullnode": "https://github.com/ryanxcharles/fullnode.git#98c633bba51757864979568fd37601a792ad2a91"
   }
 }
