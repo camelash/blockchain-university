@@ -8,8 +8,11 @@
   },
   "author": "Ryan X. Charles <ryanxcharles@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "dependencies": {
     "chai": "^2.2.0",
-    "fullnode": "git@github.com:ryanxcharles/fullnode.git#b40e5f0bc948db84fc191f70d8a168a57e3bca0b"
+    "fullnode": "git@github.com:ryanxcharles/fullnode.git#98c633bba51757864979568fd37601a792ad2a91"
   }
 }
