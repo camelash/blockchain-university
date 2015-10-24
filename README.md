@@ -1,14 +1,12 @@
-Blockchain University code samples
-==================================
-An example of validating a transaction is in bin/transaction.js
+Blockchain University
+=====================
 
-An example of parsing a block is in bin/block.js
+Code Samples
+------------
+The code samples are located in the bin/ directory. These samples only work
+with node.js 4.0 or greater. To install this code and run one of the examples,
+first be sure you have node 4.0 installed, then try this:
 
-A few script examples in bin/scripts.js
-
-These examples only work with node.js 4.0 or greater.
-
-To install:
 ```
 git clone https://github.com/ryanxcharles/blockchain-university.git
 cd blockchain-university
@@ -16,4 +14,5 @@ npm install
 node bin/transaction.js
 node bin/block.js
 node bin/scripts.js
+node bin/proof-of-work.js
 ```

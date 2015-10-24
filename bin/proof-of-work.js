@@ -11,13 +11,12 @@ while (true) {
   var noncebuf = new Buffer(4)
   noncebuf.writeUInt32BE(nonce)
   var buf = Buffer.concat([noncebuf, data])
-  powhash = Hash.sha256sha256(buf)
+  powhash = Hash.sha256sha256(buf) // Double sha256, like bitcoin
+  console.log('Nonce: ' + nonce + ', Hash: ' + powhash.toString('hex'))
   if (powhash[0] === 0) {
     break
   }
   nonce++
 }
-console.log('Found a hash that started with a 0.')
+console.log('Found a hash that started with a 0 (which is 00 in byte hex).')
 console.log('Computed ' + (nonce + 1) + ' nonces to find this hash')
-console.log('Nonce: ' + nonce)
-console.log('Hash, in hex: ' + powhash.toString('hex'))
