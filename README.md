@@ -16,3 +16,7 @@ node bin/block.js
 node bin/scripts.js
 node bin/proof-of-work.js
 ```
+
+Slides
+------
+The slides are located in the slides/ directory.
