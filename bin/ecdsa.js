@@ -28,6 +28,8 @@ console.log('address: ' + address.toString())
 // Some data that we want to sign/verify
 var databuf = new Buffer('some example data for signing and verifying')
 
+console.log('data: "' + databuf.toString() + '"')
+
 // Always sign the hash, not the data itself
 var hashbuf = Hash.sha256(databuf)
 
