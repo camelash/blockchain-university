@@ -34,6 +34,8 @@ var hashbuf = Hash.sha256(databuf)
 // Now... sign!
 var sig = ECDSA.sign(hashbuf, keypair)
 
+console.log('signature: ' + sig.toString())
+
 // Verify, without using privkey, that this signature is valid
 let verified = ECDSA.verify(hashbuf, sig, pubkey)
 should.exist(verified)
