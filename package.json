@@ -1,6 +1,6 @@
 {
   "name": "blockchain-university",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Blockchain University code samples.",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "chai": "^2.2.0",
-    "fullnode": "https://github.com/ryanxcharles/fullnode.git#98c633bba51757864979568fd37601a792ad2a91"
+    "fullnode": "=0.11.1"
   }
 }
