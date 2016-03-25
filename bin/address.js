@@ -1,14 +1,12 @@
 'use strict'
-let BN = require('fullnode/lib/bn')
 let Privkey = require('fullnode/lib/privkey')
 let Pubkey = require('fullnode/lib/pubkey')
+let Address = require('fullnode/lib/address')
 
-let privkey = Privkey().fromBN(BN(5))
-console.log(privkey.toString())
+let privkey = Privkey().fromRandom()
 let pubkey = Pubkey().fromPrivkey(privkey)
-console.log(pubkey.toString())
-
-privkey = Privkey().fromRandom()
+let address = Address().fromPubkey(pubkey)
 console.log(privkey.toString())
-pubkey = Pubkey().fromPrivkey(privkey)
 console.log(pubkey.toString())
+console.log(address.toString())
+
