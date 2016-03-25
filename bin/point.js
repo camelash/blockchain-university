@@ -16,3 +16,8 @@ console.log(point3.getX().toString(), point3.getY().toString())
 let x4 = BN(6)
 let point4 = point3.mul(x4)
 console.log(point4.getX().toString(), point4.getY().toString())
+
+let G = Point.getG()
+let privkeybn = BN(6)
+let pubkeypoint = G.mul(privkeybn)
+console.log(pubkeypoint.getX().toString(), pubkeypoint.getY().toString())
